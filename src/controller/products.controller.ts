@@ -12,6 +12,7 @@ import {
 
 import { ProductsService } from '../services/products.service';
 import { ParseIntPipe } from '../common/parse-int/parse-int.pipe';
+import { CreateProductDto } from '../dtos/products.dtos';
 
 @Controller('products')
 export class ProductsController {
@@ -42,7 +43,7 @@ export class ProductsController {
   }
 
   @Post()
-  create(@Body() payload: any) {
+  create(@Body() payload: CreateProductDto) {
     // return {
     //   message: 'action de create',
     //   payload,
