@@ -14,8 +14,6 @@ export class ProductsService {
       stock: 12,
     },
   ];
-
-
   findAll() {
     return this.products;
   }
@@ -28,16 +26,16 @@ export class ProductsService {
   }
   create(payload: CreateProductDto) {
     this.counterId = this.counterId + 1;
-    const newProduct = {
+    const newProduct: any = {
       id: this.counterId,
       payload,
     };
-    // @ts-ignore
     this.products.push(newProduct);
     return newProduct;
   }
   update(id: number, payload) {
     const product = this.findOne(id);
+    console.log(product);
     if (product) {
       const index = this.products.findIndex((item) => item.id === id);
       this.products[index] = {
